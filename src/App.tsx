@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Start from "./pages/Start";
 import Header from "./components/header";
 import Click from "./pages/Click";
+import Library from "./pages/Library";
 
 function App() {
   const location = useLocation();
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Start />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Click" element={<Click />} />
+        <Route path="/Library" element={<Library />} />
       </Routes>
     </>
   );
