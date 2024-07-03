@@ -1,28 +1,14 @@
-import React, { useState, useMemo } from "react";
+import { useState } from "react";
 import * as S from "./style";
 
-const Home: React.FC = () => {
+const Home = () => {
   const [selectedButton, setSelectedButton] = useState<string>("고등");
 
   const handleButtonClick = (buttonName: string) => {
     setSelectedButton(buttonName);
   };
 
-  // 버튼 컴포넌트를 memoization하여 최적화
-  const MemoButton = useMemo(
-    () =>
-      ({ children, name }: { children: React.ReactNode; name: string }) =>
-        (
-          <S.HomeButton
-            selected={selectedButton === name}
-            onClick={() => handleButtonClick(name)}
-          >
-            {children}
-          </S.HomeButton>
-        ),
-    [selectedButton]
-  );
-
+  const buttons = ["고등", "중등", "기초"];
   const boxes = [
     { title: "수능 특강 영단어 1800", tag: "1800단어", date: "2024.03.01" },
     { title: "수능 특강 영단어 1800", tag: "1800단어", date: "2024.03.01" },
@@ -33,16 +19,22 @@ const Home: React.FC = () => {
     <S.HomeContainer>
       <S.HomeTitle>추천 단어 세트 모음 🎢</S.HomeTitle>
       <S.HomeButtonContainer>
-        <MemoButton name="고등">고등</MemoButton>
-        <MemoButton name="중등">중등</MemoButton>
-        <MemoButton name="기초">기초</MemoButton>
+        {buttons.map((name) => (
+          <S.HomeButton
+            key={name}
+            selected={selectedButton === name}
+            onClick={() => handleButtonClick(name)}
+          >
+            {name}
+          </S.HomeButton>
+        ))}
       </S.HomeButtonContainer>
       <S.BoxContainer>
         {boxes.map((box, index) => (
           <S.Box key={index}>
-            <div className="box-title">{box.title}</div>
-            <div className="box-tag">{box.tag}</div>
-            <div className="box-date">{box.date}</div>
+            <S.BoxTitle>{box.title}</S.BoxTitle>
+            <S.BoxTag>{box.tag}</S.BoxTag>
+            <S.BoxDate>{box.date}</S.BoxDate>
           </S.Box>
         ))}
       </S.BoxContainer>
@@ -50,13 +42,13 @@ const Home: React.FC = () => {
       <S.BoxContainer>
         {boxes.map((box, index) => (
           <S.Box key={index}>
-            <div className="box-title">{box.title}</div>
-            <div className="box-tag">{box.tag}</div>
-            <div className="box-date">{box.date}</div>
+            <S.BoxTitle>{box.title}</S.BoxTitle>
+            <S.BoxTag>{box.tag}</S.BoxTag>
+            <S.BoxDate>{box.date}</S.BoxDate>
           </S.Box>
         ))}
       </S.BoxContainer>
-      <S.StyledLink to="/Library">라이브러리 바로가기 </S.StyledLink>
+      <S.StyledLink to="/Library">라이브러리 바로가기</S.StyledLink>
     </S.HomeContainer>
   );
 };

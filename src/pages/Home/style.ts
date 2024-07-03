@@ -15,7 +15,7 @@ export const HomeTitle = styled.div`
   display: flex;
   font-size: 24px;
   margin-bottom: 20px;
-  margin-top: 8%;
+  margin-top: 7%;
 `;
 
 export const HomeButtonContainer = styled.div`
@@ -64,30 +64,30 @@ export const Box = styled.div`
   &:hover {
     border-left: 5px solid #0094ff; /* 호버 시 파란색 세로 선 */
   }
+`;
 
-  .box-title {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+export const BoxTitle = styled.div`
+  font-size: 16px;
+  margin-bottom: 10px;
+`;
 
-  .box-tag {
-    display: inline-block;
-    background-color: #0094ff;
-    color: #ffffff;
-    border-radius: 30px;
-    padding: 5px;
-    font-size: 10px;
-    max-width: 60px;
-    text-align: center;
-  }
+export const BoxTag = styled.div`
+  display: inline-block;
+  background-color: #0094ff;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 5px;
+  font-size: 10px;
+  max-width: 60px;
+  text-align: center;
+`;
 
-  .box-date {
-    font-size: 12px;
-    color: #96979c;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-  }
+export const BoxDate = styled.div`
+  font-size: 12px;
+  color: #96979c;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 `;
 
 export const LibraryLink = styled.div`
