@@ -5,6 +5,7 @@ export const Main_Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
   font-family: "GmarketSansMedium";
 `;
 
@@ -12,7 +13,6 @@ export const Main_Layout_container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 export const Main_Logo_Container = styled.div`
