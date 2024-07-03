@@ -1,4 +1,4 @@
-![image](https://github.com/songkimye/Sso-ok/assets/128370837/d9785e54-39e1-4612-a2f1-40df5b74fc82)
+![image](https://github.com/songkimye/Sso-ok/assets/128370837/25fe9d6a-64f5-462b-8dee-b4241e3561b1)
 
 # 🩵 쏘옥
 ### **어려운 단어도 단번에, 쏘옥**
