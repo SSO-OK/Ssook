@@ -1,4 +1,5 @@
 import * as S from "./style";
+
 import flashcard from "../../assets/flash.svg";
 import multipleChoiceImage from "../../assets/four.svg";
 import write from "../../assets/write.svg";
@@ -40,9 +41,13 @@ const Click = () => {
           {boxes.map((box, index) => (
             <S.Box key={index}>
               <S.BoxImage src={box.image} alt={box.title} />
-              <S.BoxTitle>{box.title}</S.BoxTitle>
-              <S.BoxTag>{box.tag}</S.BoxTag>
-              <S.BoxTag2>{box.tag2}</S.BoxTag2>
+              <S.BoxContent>
+                <S.BoxTitle>{box.title}</S.BoxTitle>
+                <S.BoxTags>
+                  <S.BoxTag>{box.tag}</S.BoxTag>
+                  <S.BoxTag2>{box.tag2}</S.BoxTag2>
+                </S.BoxTags>
+              </S.BoxContent>
             </S.Box>
           ))}
         </S.BoxContainer>

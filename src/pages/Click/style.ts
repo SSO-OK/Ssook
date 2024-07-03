@@ -12,10 +12,9 @@ export const Click_Container = styled.div`
 `;
 
 export const Click_Title = styled.div`
-  display: flex;
   font-size: 24px;
   margin-bottom: 30px;
-  margin-top: 7%;
+  margin-top: 5%;
 `;
 
 export const ContentContainer = styled.div`
@@ -32,36 +31,40 @@ export const BoxContainer = styled.div`
 `;
 
 export const Box = styled.div`
-  display: inline-block;
   background-color: white;
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  position: relative;
-  min-height: 170px;
 
   &:hover {
-    border-left: 5px solid #0094ff;
+    border-left: 5px solid #0094ff; /* 호버 시 파란색 세로 선 */
   }
 `;
 
 export const BoxImage = styled.img`
-  width: 70px; 
-  height: auto;
-  margin-bottom: 20px;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 40px;
 `;
+
+export const BoxContent = styled.div``;
 
 export const BoxTitle = styled.div`
   font-size: 22px;
   margin-bottom: 20px;
 `;
 
+export const BoxTags = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const BoxTag = styled.div`
   color: #414348;
   font-size: 16px;
-  margin-bottom: 12px; 
+  margin-bottom: 5px;
 `;
 
 export const BoxTag2 = styled.div`
@@ -79,7 +82,6 @@ export const SideSection = styled.div`
 export const SideItem = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
 `;
 
