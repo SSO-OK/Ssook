@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+![image](https://github.com/songkimye/Sso-ok/assets/128370837/25fe9d6a-64f5-462b-8dee-b4241e3561b1)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🩵 쏘옥
+### **어려운 단어도 단번에, 쏘옥**
+<BR>
 
-Currently, two official plugins are available:
+## 프로젝트 설명
+### 📆 기간
+2024.06.20 ~ 2024.07.03
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🙋‍♀️ 팀원
+- **Frontend & Design** <br>
+    😉 **김영은**
+    😉 **송윤서**
+    😉 **조예설**
+  
+### 🛠️ 사용기술
+**Frontend** - React , TypeScript , Styled Component <br>
+**Design** - Figma
 
-## Expanding the ESLint configuration
+### ▶️ 시연영상
+<br>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 💡 쏘옥, 왜 필요한가? 
+고등학생인 저희 팀원들은 학교에서 영어단어시험이 있을 때 마다 **"클래스카드"** 를 사용하곤 했습니다. <br>
+너~무 편리했지만, 저희에게 필요한 기능들만 **딱 찝어서!** **딱 추가해서!** 사용하면 정말 편리할 것 같다고 생각했습니다. <br>
+<br>
+또 게임기능을 조금 더 살려 더 재밌고, 디자인을 조금 더 직관적으로 보완해서 더 사용하기 편리하게 하였습니다. <br>
+다양한 면에서 보다 좋은 **쏘옥** 을 위해 고민하고 힘써 개발했습니다!<br>
 
-- Configure the top-level `parserOptions` property like this:
+<br>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## ✨ 개발을 마무리하며...
+개발을 성공적으로 마무리하면서 뿌듯하고 학생들에게 꼭 필요한 웹을 만든 것 같아 기쁨이 매우컸습니다.
+하지만 조금 더 여유를 가지고 개발하여 클린하고 명확한 코드를 짤 수 있었다면 더할나위 없이 좋을 것 같습니다!
+마무리 후에도 지속적인 리팩토링을 거쳐 완벽한 쏘옥을 위하여 노력하겠습니다!
