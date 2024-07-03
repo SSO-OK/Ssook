@@ -2,10 +2,10 @@ import { useState } from "react";
 import * as S from "./style";
 
 const Home = () => {
-  const [selectedButton, setSelectedButton] = useState<string>("고등");
+  const [seButton, setSeButton] = useState<string>("고등");
 
-  const handleButtonClick = (buttonName: string) => {
-    setSelectedButton(buttonName);
+  const ButtonClick = (buttonName: string) => {
+    setSeButton(buttonName);
   };
 
   const buttons = ["고등", "중등", "기초"];
@@ -22,8 +22,8 @@ const Home = () => {
         {buttons.map((name) => (
           <S.HomeButton
             key={name}
-            selected={selectedButton === name}
-            onClick={() => handleButtonClick(name)}
+            selected={seButton === name}
+            onClick={() => ButtonClick(name)}
           >
             {name}
           </S.HomeButton>

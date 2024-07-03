@@ -2,6 +2,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Start from "./pages/Start";
 import Header from "./components/header";
+import Click from "./pages/Click";
 
 function App() {
   const location = useLocation();
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/Click" element={<Click />} />
       </Routes>
     </>
   );
