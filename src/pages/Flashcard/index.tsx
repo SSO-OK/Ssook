@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import words from "../../data/data1";
+import { useNavigate } from "react-router-dom";
 
 const Flashcard: React.FC = () => {
+  const navigate = useNavigate();
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showWord, setShowWord] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const totalWords = words.length;
 
@@ -12,6 +16,8 @@ const Flashcard: React.FC = () => {
     if (currentIndex < totalWords - 1) {
       setCurrentIndex(currentIndex + 1);
       setShowWord(false); // Reset to hide word for the next meaning
+    } else {
+      setShowModal(true);
     }
   };
 
@@ -19,6 +25,8 @@ const Flashcard: React.FC = () => {
     if (currentIndex < totalWords - 1) {
       setCurrentIndex(currentIndex + 1);
       setShowWord(false); // Reset to hide word for the next meaning
+    } else {
+      setShowModal(true);
     }
   };
 
@@ -43,6 +51,19 @@ const Flashcard: React.FC = () => {
         <S.Button onClick={handleDontKnow}>몰라요</S.Button>
         <S.Button onClick={handleKnow}>알아요</S.Button>
       </S.Buttons>
+      {showModal && (
+        <S.ModalOverlay>
+          <S.ModalContent>
+            <S.ModalHeader>학습 완료</S.ModalHeader>
+            <S.ModalBody>단어 학습을 완료하였습니다!</S.ModalBody>
+            <S.ModalFooter>
+              <S.ModalButton onClick={() => navigate("/Home")}>
+                홈으로
+              </S.ModalButton>
+            </S.ModalFooter>
+          </S.ModalContent>
+        </S.ModalOverlay>
+      )}
     </S.Container>
   );
 };

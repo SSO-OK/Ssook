@@ -1,5 +1,3 @@
-// style.ts 파일 내용
-
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -9,7 +7,7 @@ export const Container = styled.div`
   font-family: "GmarketSansMedium";
   background-color: #fbfbfb;
   flex-direction: column;
-  padding: 50px 16%; /* 상하 여백을 더 내려줍니다. */
+  padding: 50px 16%;
 `;
 
 export const Header = styled.h2`
@@ -94,4 +92,54 @@ export const Instruction = styled.p`
   font-size: 16px;
   color: #888;
   margin-top: 10px;
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ModalContent = styled.div`
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+export const ModalHeader = styled.h2`
+  margin: 0;
+  margin-bottom: 20px;
+`;
+
+export const ModalBody = styled.p`
+  font-size: 18px;
+  margin-bottom: 20px;
+`;
+
+export const ModalFooter = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const ModalButton = styled.div`
+  font-family: "GmarketSansMedium";
+  margin-top: 5%;
+  font-size: 18px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 5%;
+  cursor: pointer;
+  &:hover {
+    background-color: #0056b3;
+  }
 `;
