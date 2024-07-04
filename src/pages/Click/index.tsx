@@ -21,7 +21,7 @@ const Click = () => {
       tag: "문제를 읽고",
       tag2: "정답을 선택하세요",
       image: multipleChoiceImage,
-      path: "/multiple-choice",
+      path: "/Choice",
     },
     {
       title: "받아쓰기",
@@ -35,7 +35,7 @@ const Click = () => {
       tag: "의미가 같은",
       tag2: "단어끼리 짝을 맞추세요",
       image: matching,
-      path: "/matching",
+      path: "/Game",
     },
   ];
 
