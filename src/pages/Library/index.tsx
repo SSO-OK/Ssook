@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as S from "./style";
 
-const Home = () => {
+const Library = () => {
   const [seButton, setSeButton] = useState<string>("고등");
 
   const ButtonClick = (buttonName: string) => {
@@ -52,4 +52,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Library;

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import words from "../../data/data1";
+import { useNavigate } from "react-router-dom";
 
 const Flashcard: React.FC = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showWord, setShowWord] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -33,9 +35,6 @@ const Flashcard: React.FC = () => {
     setShowWord(!showWord);
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
 
   return (
     <S.Container>
@@ -58,7 +57,9 @@ const Flashcard: React.FC = () => {
         <S.ModalContainer>
           <S.ModalContent>
             <S.ModalMessage>암기를 완료하였습니다!</S.ModalMessage>
-            <S.HomeButton onClick={handleCloseModal}>홈으로 가기</S.HomeButton>
+            <S.HomeButton onClick={() => navigate("/Home")}>
+              홈으로 가기
+            </S.HomeButton>
           </S.ModalContent>
         </S.ModalContainer>
       )}

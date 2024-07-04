@@ -113,7 +113,7 @@ const Game: React.FC = () => {
           <S.ModalContent>
             <S.Time>{time} s</S.Time>
             <S.Text>다음에는 더 빨리 할 수 있을거에요!</S.Text>
-            <S.ModalButton onClick={() => navigate("/Click")}>
+<S.ModalButton onClick={() => navigate("/Click")}>
               홈으로
             </S.ModalButton>
           </S.ModalContent>

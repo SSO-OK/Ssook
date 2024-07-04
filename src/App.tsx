@@ -4,13 +4,12 @@ import Start from "./pages/Start";
 import Header from "./components/header";
 import Click from "./pages/Click";
 import Library from "./pages/Library";
-import Choice from "./pages/Choice";
+import Choice from "./pages/choice";
 import Flashcard from "./pages/Flashcard";
 import Game from "./pages/game";
-<<<<<<< HEAD
+import Dictation from "./pages/dictation";
 
-=======
->>>>>>> dc79a9d25252be22d5b3fe86088e0ca9c8bb100a
+
 function App() {
   const location = useLocation();
 
@@ -27,6 +26,7 @@ function App() {
         <Route path="/Chocie" element={<Choice />} />
         <Route path="/Flashcard" element={<Flashcard />} />
         <Route path="/Game" element={<Game />} />
+        <Route path="/dictation" element={<Dictation />} />
       </Routes>
     </>
   );
