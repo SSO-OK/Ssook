@@ -4,9 +4,9 @@ import Start from "./pages/Start";
 import Header from "./components/header";
 import Click from "./pages/Click";
 import Library from "./pages/Library";
-import Choice from "./pages/choice";
+import Choice from "./pages/Choice";
 import Flashcard from "./pages/Flashcard";
-
+import Game from "./pages/game";
 function App() {
   const location = useLocation();
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/Library" element={<Library />} />-
         <Route path="/Chocie" element={<Choice />} />
         <Route path="/Flashcard" element={<Flashcard />} />
+        <Route path="/Game" element={<Game />} />
       </Routes>
     </>
   );
