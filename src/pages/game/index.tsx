@@ -1,6 +1,7 @@
+// src/components/Game.tsx
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
-import word1 from "../../data/dat1";
+import word1 from "../../data/data1";
 
 interface Card {
   word?: string;
@@ -14,6 +15,7 @@ const Game: React.FC = () => {
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [time, setTime] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
     const cardData = word1.flatMap((item) => [
@@ -25,8 +27,11 @@ const Game: React.FC = () => {
 
   useEffect(() => {
     const timer = setInterval(() => setTime((prevTime) => prevTime + 1), 1000);
+    if (isGameOver) {
+      clearInterval(timer);
+    }
     return () => clearInterval(timer);
-  }, []);
+  }, [isGameOver]);
 
   const handleCardClick = (index: number) => {
     if (selectedCards.length < 2 && !selectedCards.includes(index)) {
@@ -62,6 +67,12 @@ const Game: React.FC = () => {
     }
   }, [selectedCards, cards]);
 
+  useEffect(() => {
+    if (matchedCards.length === cards.length && cards.length > 0) {
+      setIsGameOver(true);
+    }
+  }, [matchedCards, cards]);
+
   const getMatchedStatus = (index: number) => {
     if (matchedCards.includes(index)) return true;
     if (selectedCards.length === 2 && selectedCards.includes(index)) {
@@ -89,8 +100,10 @@ const Game: React.FC = () => {
 
   return (
     <S.GameContainer>
-      <S.WordTitle>중학교 2학년 필수 영단어</S.WordTitle>
-      <S.Timer>{time} s</S.Timer>
+      <S.TextBox>
+        <S.WordTitle>중학교 2학년 필수 영단어</S.WordTitle>
+        <S.Timer>{time} s</S.Timer>
+      </S.TextBox>
       <S.CardBox>
         {cards.map((card, index) => (
           <S.Card
@@ -103,6 +116,14 @@ const Game: React.FC = () => {
           </S.Card>
         ))}
       </S.CardBox>
+      {isGameOver && (
+        <S.ModalOverlay>
+          <S.ModalContent>
+            <div>축하합니다! 모든 카드를 맞추셨습니다.</div>
+            <div>걸린 시간: {time} 초</div>
+          </S.ModalContent>
+        </S.ModalOverlay>
+      )}
     </S.GameContainer>
   );
 };

@@ -5,7 +5,7 @@ import Header from "./components/header";
 import Click from "./pages/Click";
 import Library from "./pages/Library";
 import Choice from "./pages/choice";
-
+import Game from "./pages/game";
 function App() {
   const location = useLocation();
 
@@ -20,6 +20,7 @@ function App() {
         <Route path="/Click" element={<Click />} />
         <Route path="/Library" element={<Library />} />-
         <Route path="/Chocie" element={<Choice />} />
+        <Route path="/Game" element={<Game />} />
       </Routes>
     </>
   );
