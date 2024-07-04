@@ -31,9 +31,9 @@ const Flashcard: React.FC = () => {
       <S.Header>워드마스터 수능 2000</S.Header>
       <S.FlashcardBox onClick={toggleWord}>
         {showWord ? (
-          <S.Word>{words[currentIndex].word}</S.Word>
+          <S.Word>{words[currentIndex].mean}</S.Word>
         ) : (
-          <S.Meaning>{words[currentIndex].mean}</S.Meaning>
+          <S.Meaning>{words[currentIndex].word}</S.Meaning>
         )}
         <S.Progress>
           {currentIndex + 1} / {totalWords}

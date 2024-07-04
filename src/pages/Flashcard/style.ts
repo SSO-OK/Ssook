@@ -24,8 +24,8 @@ export const FlashcardBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 150px 200px 100px; /* 상하 여백을 조정합니다. */
+  justify-content: space-between;
+  padding: 100px 200px; /* 상하 여백을 조정합니다. */
   margin-bottom: 30px;
   max-width: 1000px;
   width: 100%;
@@ -37,24 +37,24 @@ export const FlashcardBox = styled.div`
 `;
 
 export const Word = styled.span`
-  font-size: 60px;
+  font-size: 72px; /* 영어 단어의 폰트 크기를 키웁니다. */
   text-align: center; /* 텍스트를 가운데 정렬합니다. */
   color: #000000;
-  margin-bottom: 20px; /* 영어 단어와 뜻 사이의 여백을 추가합니다. */
-  order: 2; /* 순서를 뒤로 보냅니다. */
+  margin-top: auto; /* 영어 단어와 뜻 사이의 여백을 추가합니다. */
 `;
 
 export const Meaning = styled.span`
-  font-size: 60px;
+  font-size: 72px; /* 뜻의 폰트 크기를 키웁니다. */
   text-align: center; /* 텍스트를 가운데 정렬합니다. */
   color: #000000;
-  margin-top: 20px; /* 뜻과 상단 여백을 추가합니다. */
-  order: 1; /* 순서를 앞으로 보냅니다. */
+  margin-top: auto; /* 뜻을 아래쪽으로 내립니다. */
 `;
 
 export const Progress = styled.span`
   font-size: 20px;
   color: #96979c;
+  text-align: center; /* 페이지 수를 가운데 정렬합니다. */
+  margin-top: auto; /* 페이지 수를 아래쪽으로 내립니다. */
 `;
 
 export const Buttons = styled.div`
