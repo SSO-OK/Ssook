@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as S from "./style";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [seButton, setSeButton] = useState<string>("고등");
 
   const ButtonClick = (buttonName: string) => {
@@ -31,7 +34,7 @@ const Home = () => {
       </S.HomeButtonContainer>
       <S.BoxContainer>
         {boxes.map((box, index) => (
-          <S.Box key={index}>
+          <S.Box onClick={() => navigate("/Click")} key={index}>
             <S.BoxTitle>{box.title}</S.BoxTitle>
             <S.BoxTag>{box.tag}</S.BoxTag>
             <S.BoxDate>{box.date}</S.BoxDate>
@@ -41,7 +44,7 @@ const Home = () => {
       <S.HomeTitle>최근 추가된 단어 세트 모음 ⚡️</S.HomeTitle>
       <S.BoxContainer>
         {boxes.map((box, index) => (
-          <S.Box key={index}>
+          <S.Box onClick={() => navigate("/Click")} key={index}>
             <S.BoxTitle>{box.title}</S.BoxTitle>
             <S.BoxTag>{box.tag}</S.BoxTag>
             <S.BoxDate>{box.date}</S.BoxDate>
