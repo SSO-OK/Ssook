@@ -1,7 +1,7 @@
-// src/components/Game.tsx
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import word1 from "../../data/data1";
+import { useNavigate } from "react-router-dom";
 
 interface Card {
   word?: string;
@@ -16,6 +16,7 @@ const Game: React.FC = () => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [time, setTime] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [notMatchedCards, setNotMatchedCards] = useState<number[]>([]);
 
   useEffect(() => {
     const cardData = word1.flatMap((item) => [
@@ -61,6 +62,10 @@ const Game: React.FC = () => {
 
       if (isMatch) {
         setMatchedCards((prev) => [...prev, firstIndex, secondIndex]);
+        setNotMatchedCards([]);
+      } else {
+        setNotMatchedCards([firstIndex, secondIndex]);
+        setTimeout(() => setNotMatchedCards([]), 1000); // 일정 시간 후 초기화
       }
 
       setTimeout(() => setSelectedCards([]), 1000);
@@ -75,28 +80,11 @@ const Game: React.FC = () => {
 
   const getMatchedStatus = (index: number) => {
     if (matchedCards.includes(index)) return true;
-    if (selectedCards.length === 2 && selectedCards.includes(index)) {
-      const [firstIndex, secondIndex] = selectedCards;
-      const firstCard = cards[firstIndex];
-      const secondCard = cards[secondIndex];
-
-      return (
-        (firstCard.word &&
-          secondCard.mean &&
-          word1.some(
-            (item) =>
-              item.word === firstCard.word && item.mean === secondCard.mean,
-          )) ||
-        (firstCard.mean &&
-          secondCard.word &&
-          word1.some(
-            (item) =>
-              item.word === secondCard.word && item.mean === firstCard.mean,
-          ))
-      );
-    }
+    if (notMatchedCards.includes(index)) return false;
     return null;
   };
+
+  const navigate = useNavigate();
 
   return (
     <S.GameContainer>
@@ -109,8 +97,12 @@ const Game: React.FC = () => {
           <S.Card
             key={index}
             onClick={() => handleCardClick(index)}
+            clickable={
+              !matchedCards.includes(index) && selectedCards.length < 2
+            }
+            matched={getMatchedStatus(index) === true}
+            notMatched={getMatchedStatus(index) === false}
             clicked={selectedCards.includes(index)}
-            matched={getMatchedStatus(index)}
           >
             {card.word || card.mean}
           </S.Card>
@@ -119,8 +111,11 @@ const Game: React.FC = () => {
       {isGameOver && (
         <S.ModalOverlay>
           <S.ModalContent>
-            <div>축하합니다! 모든 카드를 맞추셨습니다.</div>
-            <div>걸린 시간: {time} 초</div>
+            <S.Time>{time} s</S.Time>
+            <S.Text>다음에는 더 빨리 할 수 있을거에요!</S.Text>
+            <S.ModalButton onClick={() => navigate("/Click")}>
+              홈으로
+            </S.ModalButton>
           </S.ModalContent>
         </S.ModalOverlay>
       )}

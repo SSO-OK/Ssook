@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const GameContainer = styled.div`
+  padding-top: 5%;
+  padding-bottom: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 95vh;
+  height: 100%;
   background-color: #fbfbfb;
 `;
 
@@ -31,6 +33,8 @@ export const CardBox = styled.div`
 interface CardProps {
   matched: boolean | null;
   clickable?: boolean;
+  clicked?: boolean;
+  notMatched?: boolean; // 새로 추가된 prop
 }
 
 export const Card = styled.div<CardProps>`
@@ -40,12 +44,18 @@ export const Card = styled.div<CardProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border: 2px solid ${({ matched }) => (matched === true ? "green" : "white")};
+  background-color: ${({ clicked }) => (clicked ? "#d9d9d9" : "white")};
+  border: 2px solid
+    ${({ matched, notMatched }) =>
+      matched ? "#00EF0A" : notMatched ? "red" : "white"};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   cursor: ${({ clickable }) => (clickable ? "pointer" : "default")};
   user-select: none;
+  transition: background-color 0.3s, border-color 0.3s;
+  &:hover {
+    background-color: #f0f0f0;
+  }
 `;
 
 export const ModalOverlay = styled.div`
@@ -62,27 +72,30 @@ export const ModalOverlay = styled.div`
 
 export const ModalContent = styled.div`
   background-color: white;
+  width: 18em;
+  height: 10em;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 20px;
   font-family: "GmarketSansMedium";
-  max-width: 80%;
 `;
 
-export const ModalMessage = styled.p`
-  margin-bottom: 10px;
-`;
-
-export const ModalButton = styled.button`
-  padding: 10px 20px;
+export const Text = styled.text`
+  margin-top: 2%;
+  font-size: 20px;
   font-family: "GmarketSansMedium";
+`;
+export const ModalButton = styled.button`
+  font-family: "GmarketSansMedium";
+  margin-top: 5%;
   font-size: 18px;
   color: white;
   background-color: #007bff;
   border: none;
   border-radius: 5px;
+  padding: 2%;
   cursor: pointer;
   &:hover {
     background-color: #0056b3;
@@ -95,4 +108,10 @@ export const TextBox = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 50%;
+`;
+
+export const Time = styled.p`
+  margin-top: 20px;
+  font-size: 30px;
+  font-family: "GmarketSansMedium";
 `;

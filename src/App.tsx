@@ -4,10 +4,13 @@ import Start from "./pages/Start";
 import Header from "./components/header";
 import Click from "./pages/Click";
 import Library from "./pages/Library";
-import Choice from "./pages/choice";
+import Choice from "./pages/Choice";
 import Flashcard from "./pages/Flashcard";
 import Game from "./pages/game";
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc79a9d25252be22d5b3fe86088e0ca9c8bb100a
 function App() {
   const location = useLocation();
 
