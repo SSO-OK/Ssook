@@ -1,5 +1,3 @@
-// style.ts 파일 내용
-
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -88,6 +86,43 @@ export const Button = styled.button`
     background-color: #0094ff; /* 배경색을 파란색으로 설정합니다. */
     color: #fff; /* 글자 색을 흰색으로 설정합니다. */
   }
+`;
+
+export const ModalContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경색 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ModalContent = styled.div`
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px; /* 내부 여백 추가 */
+`;
+
+export const ModalMessage = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+`;
+
+export const HomeButton = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #0094ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px; /* 위쪽 여백 추가 */
 `;
 
 export const Instruction = styled.p`

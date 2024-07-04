@@ -5,25 +5,36 @@ import words from "../../data/data1";
 const Flashcard: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showWord, setShowWord] = useState(false);
-
+  const [showModal, setShowModal] = useState(false);
   const totalWords = words.length;
 
   const handleKnow = () => {
     if (currentIndex < totalWords - 1) {
       setCurrentIndex(currentIndex + 1);
       setShowWord(false); // Reset to hide word for the next meaning
+    } else {
+      setShowModal(true); // Show completion modal
     }
   };
 
   const handleDontKnow = () => {
     if (currentIndex < totalWords - 1) {
-      setCurrentIndex(currentIndex + 1);
+      const updatedWords = [...words];
+      const currentWord = updatedWords.splice(currentIndex, 1)[0];
+      updatedWords.push(currentWord);
+      setCurrentIndex(currentIndex + 1); // Move to the next word
       setShowWord(false); // Reset to hide word for the next meaning
+    } else {
+      setShowModal(true); // Show completion modal
     }
   };
 
   const toggleWord = () => {
     setShowWord(!showWord);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -43,6 +54,14 @@ const Flashcard: React.FC = () => {
         <S.Button onClick={handleDontKnow}>몰라요</S.Button>
         <S.Button onClick={handleKnow}>알아요</S.Button>
       </S.Buttons>
+      {showModal && (
+        <S.ModalContainer>
+          <S.ModalContent>
+            <S.ModalMessage>암기를 완료하였습니다!</S.ModalMessage>
+            <S.HomeButton onClick={handleCloseModal}>홈으로 가기</S.HomeButton>
+          </S.ModalContent>
+        </S.ModalContainer>
+      )}
     </S.Container>
   );
 };
