@@ -95,7 +95,7 @@ export const ModalButton = styled.button`
   background-color: #007bff;
   border: none;
   border-radius: 5px;
-  padding: 2%;
+  padding: 5%;
   cursor: pointer;
   &:hover {
     background-color: #0056b3;
